@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Project Academy</title>
+	<meta name="author" content="Heitor de Souza"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	<div class="container" style="margin-top:40px;">
+		<h4>Alterar Alunos</h4>
+		<hr>
+		<form method="post" action="/alterar" th:object="${aluno}" autocomplete="off">
+			<input type="hidden" th:field="*{id}">
+			<!-- Nome -->
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+						<label class="validation-message" th:errors="*{nome}"></label>
+					</div>
+					<label>Nome do Aluno:</label>
+					<input class="form-control" placeholder="Ex: Nome Sobrenome" th:field="*{nome}">
+				</div>
+			</div>
+			
+			<!-- Curso -->
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('curso')}">
+						<label class="validation-message" th:errors="*{curso}"></label>
+					</div>
+					<label>Selecione o Curso:</label>
+					<select class="form-control" th:field="*{curso}">
+					<option th:each="curso : ${T(com.br.academy.Enums.Curso).values()}"
+					th:value="${curso}" th:text="${curso}"></option>
+					</select>
+				</div>
+			</div>
+			
+			<!-- Matricula -->
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<label>Gerar Matricula:</label>
+					<input readonly="readonly" id="matricula" class="form-control" th:field="*{matricula}">
+				</div>
+			</div>
+			
+			<!-- Status -->
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('status')}">
+							<label class="validation-message" th:errors="*{status}"></label>
+					</div>
+					<label>Selecione o Status:</label>
+					<select class="form-control" th:field="*{status}">
+						<option th:each="status : ${T(com.br.academy.Enums.Status).values()}"
+						th:value="${status}" th:text="${status}"></option>
+					</select>
+				</div>
+			</div>
+			
+			<!-- Turno -->
+			<div class="row">
+				<div class="col-md-6 form-group offset-md-3">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('turno')}">
+						<label class="validation-message" th:errors="*{turno}"></label>
+					</div>
+					<label>Turno:</label>
+					<input class="form-control" placeholder="Ex: Manhã" th:field="*{turno}">
+				</div>
+			</div>
+			
+			<div class="row">
+				<button type="submit" class="btn btn-success offset-md-5 w-auto">SALVAR</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class="btn btn-outline-danger w-auto">VOLTAR</a>
+			</div>
+		</form>
+	</div>
+
+	<script src="js/main.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

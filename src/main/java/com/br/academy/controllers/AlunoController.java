@@ -1,11 +1,14 @@
 package com.br.academy.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.br.academy.dao.AlunoDao;
@@ -112,6 +115,20 @@ public class AlunoController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("Aluno/alunos-cancelados");
 		mv.addObject("alunosCancelados", alunoRepositorio.findByStatusCancelados());
+		return mv;
+	}
+	
+	@PostMapping("pesquisar-aluno")
+	public ModelAndView pesquisarAluno(@RequestParam(required = false) String nome) {
+		ModelAndView mv = new ModelAndView();
+		List<Aluno> listaAlunos;
+		if(nome == null || nome.trim().isEmpty()) {
+			listaAlunos = alunoRepositorio.findAll();
+		} else {
+			listaAlunos = alunoRepositorio.findByNomeContainingIgnoreCase(nome);
+		}
+		mv.addObject("ListaDeAlunos",listaAlunos);
+		mv.setViewName("Aluno/pesquisa-resultado");
 		return mv;
 	}
 }

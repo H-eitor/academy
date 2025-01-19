@@ -1,7 +1,14 @@
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\AcademyApplication.java
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\controllers\AlunoController.java
-C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\controllers\HomeController.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\controllers\UsuarioController.java
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\dao\AlunoDao.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\dao\UsuarioDao.java
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\Enums\Curso.java
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\Enums\Status.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\Exception\ServiceExc.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\Exceptions\CriptoExistException.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\Exceptions\EmailExistsException.java
 C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\model\Aluno.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\model\Usuario.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\service\ServiceUsuario.java
+C:\Users\heito\OneDrive\Área de Trabalho\Sites\academy\src\main\java\com\br\academy\util\Util.java

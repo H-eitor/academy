@@ -74,13 +74,13 @@
 					</div>
 					<label>Turno:</label>
 					<input class="form-control" placeholder="Ex: Manhã" th:field="*{turno}">
-					</div>
+				</div>
 			</div>
 			
 			<div class="row">
 				<button type="submit" class="btn btn-success offset-md-5 w-auto">SALVAR</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a class="btn btn-outline-danger w-auto">VOLTAR</a>
+				<a class="btn btn-outline-danger w-auto" th:href="@{/index}">VOLTAR</a>
 			</div>
 		</form>
 	</div>

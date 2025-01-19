@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Project Academy</title>
+	<meta name="author" content="Heitor de Souza"/>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<body>
+	<div class="Login-Form">
+		<div class="container">
+			<div class="main-div">
+				<div class="texto-header">
+					<h2>Admin Login</h2>
+					<p>Insira suas credenciais para efetuar login no sistema</p>
+				</div>
+				<form method="post" action="login" th:object="${usuario}" autocomplete="off">
+					<div class="alert alert-danger" role="alert" th:if="${msg}">
+						<strong th:text="${msg}"></strong>
+					</div>
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('user')}">
+						<label class="validation-message" th:errors="*{user}"></label>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Username" th:field="*{user}">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Senha" th:field="*{senha}">
+					</div>
+					<div class="cadastro">
+						<a th:href="@{cadastro}">Não tem cadastro? Clique aqui</a>
+					</div>
+					<button class="btn btn-primary" type="submit">Login</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

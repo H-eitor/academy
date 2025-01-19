@@ -18,15 +18,41 @@
 			
 			<div class="botoes">
 				<div class="wm">
-					<h5 class="btn btn-home">CADASTRAR ALUNO</h5>
+					<a class="btn btn-home" th:href="@{inserirAlunos}">CADASTRAR ALUNO</a>
 				</div>
 				<div class="wm">
-					<h5 class="btn btn-home justify-content-center">ENCONTRAR ALUNO</h5>
+					<button class="btn btn-home justify-content-center" data-toggle="modal" data-target="#modalPesquisa">ENCONTRAR ALUNO</button>
 				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
 	</section>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalPesquisa">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Encontre um aluno</h5>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<form method="post" action="pesquisar-aluno" th:object="${aluno}"
+					autocomplete="off">
+					<div class="modal-body">
+						<input type="text" placeholder="Digite o nome do aluno"
+							th:field="*{nome}" class="form-control" />
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+						<button class="btn btn-success" type="submit">Pesquisar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<div th:replace="fragmentos/fragmentos :: rodape"></div>
 	
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
